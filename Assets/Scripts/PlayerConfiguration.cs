@@ -10,4 +10,6 @@ public class PlayerConfiguration : ScriptableObject
     public float gravity = -9.81f;
     public float jumpHeight = 1.5f;
     public float airSpeedDampMultiplier = 0.25f;
+    public float aimingDampMultiplier = 0.25f;
+    public float throwAngleDegrees = 15f;
 }

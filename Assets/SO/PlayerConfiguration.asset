@@ -17,3 +17,4 @@ MonoBehaviour:
   gravity: -9.81
   jumpHeight: 1.5
   airSpeedDampMultiplier: 0.25
+  aimingDampMultiplier: 0.25

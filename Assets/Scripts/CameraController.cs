@@ -4,42 +4,49 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float mouseSpeed = 100f;
-    [SerializeField] private Transform playerBody;
+    [SerializeField] private float _mouseSpeed = 100f;
+    [SerializeField] private Transform _playerBody;
+    [SerializeField] private float _defaultFov;
+    [SerializeField] private float _aimFov;
 
-    [SerializeField] private bool isPickable;
-
-    [SerializeField] private float raycastDistance;
-    [SerializeField] private LayerMask raycastLayers;
+    private Camera _camera;
     private float rotX = 0f;
+
+    void Awake()
+    {
+        _camera = GetComponent<Camera>();
+    }
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }
 
-    void FixedUpdate()
-    {
-        //isPickable = Physics.Raycast(transform.position, transform.forward, raycastDistance, raycastLayers);
+        _camera.fieldOfView = _defaultFov;
+
     }
 
     void Update()
     {
-
-        float mouseInputX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
-        float mouseInputY = Input.GetAxis("Mouse Y") * mouseSpeed * Time.deltaTime;
+        float mouseInputX = Input.GetAxis("Mouse X") * _mouseSpeed * Time.deltaTime;
+        float mouseInputY = Input.GetAxis("Mouse Y") * _mouseSpeed * Time.deltaTime;
 
         rotX -= mouseInputY;
         rotX = Mathf.Clamp(rotX, -90f, 90f);
 
         transform.localRotation = Quaternion.Euler(rotX, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseInputX);
-        Debug.DrawRay(transform.position, transform.forward * raycastDistance, Color.green);
+        _playerBody.Rotate(Vector3.up * mouseInputX);
     }
 
-    public bool CheckIfPickable()
+    public void ManageAim(bool isAiming)
     {
-        return isPickable;
+        if (isAiming)
+        {
+            _camera.fieldOfView = _aimFov;
+
+        } else 
+        { 
+            _camera.fieldOfView = _defaultFov;
+        }
     }
 }
