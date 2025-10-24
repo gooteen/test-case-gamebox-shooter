@@ -59,6 +59,19 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void EquipWeapon(GameObject weapon)
+    {
+        weapon.SetActive(true);
+        Weapon w = weapon.GetComponent<Weapon>();
+        _equippedWeapon = w;
+    }
+
+    public void UnequipWeapon(GameObject weapon)
+    {
+        weapon.SetActive(false);
+        _equippedWeapon = null;
+    }
+
     private void Move()
     {
         // Simulating gravity
@@ -69,10 +82,15 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log(horizontalSpeed);
 
-        float movementX = Input.GetAxis("Horizontal");
-        float movementZ = Input.GetAxis("Vertical");
+        float movementX = 0f;
+        float movementZ = 0f;
 
-        Vector3 direction = horizontalSpeed * (transform.forward * movementZ + transform.right * movementX) + transform.up * _currentVerticalSpeed;
+        if (Input.GetKey(KeyCode.W)) movementZ += 1f;
+        if (Input.GetKey(KeyCode.S)) movementZ -= 1f;
+        if (Input.GetKey(KeyCode.D)) movementX += 1f;
+        if (Input.GetKey(KeyCode.A)) movementX -= 1f;
+
+        Vector3 direction = horizontalSpeed * (transform.forward * movementZ + transform.right * movementX).normalized + transform.up * _currentVerticalSpeed;
 
         _controller.Move(direction * Time.deltaTime);
     }
