@@ -15,11 +15,20 @@ public class InventoryItem
 {
     public int itemId;
     public GameObject objectInGame;
+    public int quantity;
 
-    public InventoryItem(int id, GameObject o)
+    public InventoryItem(int id, GameObject o, int q)
     {
         itemId = id;
         objectInGame = o;
+        quantity = q;
+    }
+
+    public InventoryItem(int id, int q)
+    {
+        itemId = id;
+        objectInGame = null;
+        quantity = q;
     }
 }
 

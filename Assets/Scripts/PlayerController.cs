@@ -20,6 +20,12 @@ public class PlayerController : MonoBehaviour
     private float _currentHorizontalSpeed;
     private float _currentVerticalSpeed;
 
+    public Weapon EquippedWeapon
+    {
+        get { return _equippedWeapon; } 
+        set { _equippedWeapon = value; }
+    }
+
     void Start()
     {
         _controller = GetComponent<CharacterController>();
@@ -59,19 +65,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void EquipWeapon(GameObject weapon)
-    {
-        weapon.SetActive(true);
-        Weapon w = weapon.GetComponent<Weapon>();
-        _equippedWeapon = w;
-    }
-
-    public void UnequipWeapon(GameObject weapon)
-    {
-        weapon.SetActive(false);
-        _equippedWeapon = null;
-    }
-
     private void Move()
     {
         // Simulating gravity
@@ -102,23 +95,16 @@ public class PlayerController : MonoBehaviour
 
     private void ThrowObject()
     {
-        
-
         Vector3 cameraForward = _cameraController.transform.forward;
         Vector3 cameraRight = _cameraController.transform.right;
 
         Vector3 throwDir = Quaternion.AngleAxis(-_playerConfig.throwAngleDegrees, cameraRight) * cameraForward;
 
-        // 2) спавн и добавление силы
         GameObject proj = Instantiate(_throwableObjectPrefab, _cameraController.transform.position, Quaternion.LookRotation(throwDir));
         Rigidbody rb = proj.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            // рекомендуемый режим: импульс (вес объекта учитывается)
             rb.AddForce(throwDir.normalized * 30f, ForceMode.Impulse);
-
-            // альтернативно: задать скорость напрямую
-            // rb.velocity = throwDir.normalized * throwForce;
         }
         else
         {

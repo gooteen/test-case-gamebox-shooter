@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - itemName: "\u041F\u043E\u0441\u043E\u0445 \u043C\u0430\u0433\u0430"
-    icon: {fileID: 0}
+    icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
     itemPrefab: {fileID: 3635801768652176286, guid: 02e11718c7ab3884099c9bc29f14a54c, type: 3}
     description: 
   - itemName: "\u041C\u0430\u0433\u0438\u0447\u0435\u0441\u043A\u0430\u044F \u043A\u043D\u0438\u0433\u0430"
-    icon: {fileID: 0}
+    icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
     itemPrefab: {fileID: 5380128857545056222, guid: bca7118fe16e7d441ade2eac60bc3194, type: 3}
     description: 

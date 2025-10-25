@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class DesturctibleObject : MonoBehaviour, IRaycastHittable
 {
     [SerializeField] private List<Rigidbody> _objectFractions;
+    [SerializeField] private GameObject _sceneItemPrefab;
     private BoxCollider _col;
     
     void Awake()
@@ -17,12 +18,17 @@ public class DesturctibleObject : MonoBehaviour, IRaycastHittable
 
     private void Explode()
     {
+
         foreach (Rigidbody fraction in _objectFractions)
         {
             fraction.isKinematic = false;
             fraction.AddForce((fraction.transform.position - this.transform.position) * Random.Range(10f, 30f), ForceMode.Impulse);
         }
 
+        Instantiate(_sceneItemPrefab, transform.position, transform.rotation);
+
         _col.enabled = false;
+
+        Destroy(gameObject, 5f);
     }
 }
