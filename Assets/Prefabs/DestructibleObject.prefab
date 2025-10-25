@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: 7970327975212022455}
   - {fileID: 6373448015281168908}
   - {fileID: 8319797153201845739}
+  _sceneItemPrefab: {fileID: 3138271024255339414, guid: fd3b0ce04f7520646920f29fdd4f4c72, type: 3}
 --- !u!1001 &737334793811913208
 PrefabInstance:
   m_ObjectHideFlags: 0

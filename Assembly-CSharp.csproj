@@ -60,21 +60,21 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.62f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\GameItems.cs" />
-    <Compile Include="Assets\Scripts\SingleShotWeapon.cs" />
-    <Compile Include="Assets\Scripts\AutoWeapon.cs" />
-    <Compile Include="Assets\Scripts\GameEvents.cs" />
-    <Compile Include="Assets\Scripts\Inventory.cs" />
-    <Compile Include="Assets\Scripts\InventoryPanelCell.cs" />
-    <Compile Include="Assets\Scripts\SceneItem.cs" />
-    <Compile Include="Assets\Scripts\InventoryController.cs" />
-    <Compile Include="Assets\Scripts\UIController.cs" />
-    <Compile Include="Assets\Scripts\PlayerConfiguration.cs" />
-    <Compile Include="Assets\Scripts\Weapon.cs" />
-    <Compile Include="Assets\Scripts\DestructibleObject.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\IRaycastHittable.cs" />
+    <Compile Include="Assets\Scripts\Interactivity\DestructibleObject.cs" />
+    <Compile Include="Assets\Scripts\Player\InventoryController.cs" />
+    <Compile Include="Assets\Scripts\Interactivity\SceneItem.cs" />
+    <Compile Include="Assets\Scripts\Technical\PlayerConfiguration.cs" />
+    <Compile Include="Assets\Scripts\Technical\Inventory.cs" />
+    <Compile Include="Assets\Scripts\Player\CameraController.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Technical\GameItems.cs" />
+    <Compile Include="Assets\Scripts\Technical\IRaycastHittable.cs" />
+    <Compile Include="Assets\Scripts\Weapons\SingleShotWeapon.cs" />
+    <Compile Include="Assets\Scripts\UI\InventoryPanelCell.cs" />
+    <Compile Include="Assets\Scripts\UI\UIController.cs" />
+    <Compile Include="Assets\Scripts\Weapons\Weapon.cs" />
+    <Compile Include="Assets\Scripts\Technical\GameEvents.cs" />
+    <Compile Include="Assets\Scripts\Weapons\AutoWeapon.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
